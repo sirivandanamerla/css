@@ -1,27 +1,37 @@
 <template>
   <q-layout view="hHh lpR fFf">
     <q-header class="bg-white text-dark q-pa-sm">
-      <div class="row items-center justify-between">
+      <q-toolbar class="row items-center justify-between q-pa-none">
         <div class="row items-center">
-          <q-input dense borderless placeholder="Search entire store here.." class="q-mr-md">
-            <template v-slot:prepend>
-              <q-icon name="search" />
-            </template>
+          <q-input
+            dense
+            borderless
+            placeholder="Search entire store here.."
+            class="q-mr-md hidden-sm-and-down"
+            style="min-width: 260px;"
+          >
+            <template v-slot:prepend><q-icon name="search" /></template>
           </q-input>
         </div>
-        <div class="absolute-center">
+
+        <!-- Center logo (always centered) -->
+        <div class="absolute-center" style="pointer-events: none;">
           <img src="src/assets/Vector Smart Object.png" alt="Diamond Logo" style="height: 40px;" />
         </div>
+
+        <!-- Right: icons + VAT text -->
         <div class="column items-end">
-          <span class="text-caption q-mb-sm">EXCL. VAT (NON-EU COUNTRIES)</span>
+          <span class="text-caption q-mb-sm hidden-sm-and-down">EXCL. VAT (NON-EU COUNTRIES)</span>
           <div>
             <q-btn flat round icon="favorite_border" />
             <q-btn flat round icon="shopping_cart" />
             <q-btn flat round icon="person" />
           </div>
         </div>
-      </div>
-      <div>
+      </q-toolbar>
+
+      <!-- Nav buttons: hide on xs, show as drawer menu on xs -->
+      <div class="q-mt-sm hidden-sm-and-down">
         <q-btn flat label="Engagement Ring" icon-right="keyboard_arrow_down" />
         <q-btn flat label="Wedding Ring" icon-right="keyboard_arrow_down" />
         <q-btn flat label="Fine Jewelry" icon-right="keyboard_arrow_down" />
@@ -115,39 +125,59 @@
               </div>
             </div>
             <div class="column items-center">
-              <q-img src="src\assets\Assests\Shop by category\Artboard 2.png" style="width: 150px; height: 150px;" />
-              <div class="text-subtitle2 q-mt-sm">Wedding Rings</div>
+              <q-img src="src\assets\Assests\Shop by category\Artboard 2.png" style="width: 200px; height: 200px; border-radius: 8px; overflow: hidden;" class="cursor-pointer">
+              <div class="absolute-bottom text-white ">
+                Wedding Rings
+                  </div>
+                </q-img>
             </div>
 
             <div class="column items-center">
               <q-img
                 src="src\assets\Assests\Shop by category\portrait-of-caucasian-woman-wearing-celtic-knot-ea-2021-08-31-17-22-20-utc.png"
-                style="width: 150px; height: 150px;" />
-              <div class="text-subtitle2 q-mt-sm">Diamond Earrings</div>
+                style="width: 200px; height: 200px; border-radius: 8px; overflow: hidden;" class="cursor-pointer">
+                
+              <div class="absolute-bottom text-white ">
+                Diamond Earrings
+                  </div>
+                </q-img>
+              
             </div>
 
             <div class="column items-center">
-              <q-img src="src\assets\Assests\Shop by category\Artboard 1.png" style="width: 150px; height: 150px;" />
-              <div class="text-subtitle2 q-mt-sm">Diamond Necklaces</div>
+              <q-img src="src\assets\Assests\Shop by category\Artboard 1.png" style="width: 200px; height: 200px; border-radius: 8px; overflow: hidden;" class="cursor-pointer">
+              <div class="absolute-bottom text-white ">
+                Diamond Necklaces
+                  </div>
+                </q-img>
             </div>
 
             <div class="column items-center">
-              <q-img src="src\assets\Assests\Shop by category\461wmod.png" style="width: 150px; height: 150px;" />
-              <div class="text-subtitle2 q-mt-sm">Diamond Bracelets</div>
+              <q-img src="src\assets\Assests\Shop by category\461wmod.png" style="width: 200px; height: 200px; border-radius: 8px; overflow: hidden;" class="cursor-pointer">
+              <div class="absolute-bottom text-white ">
+                Diamond Bracelets                  </div>
+                </q-img>
             </div>
           </div>
         </div>
-        <div>
-          <q-img src="src\assets\Untitled-2.png" style="height: 400px; border-radius: 8px; overflow: hidden;">
-            <div class="q-pl-xl text-white q-pa-xl">
-              <div class="text-h6 q-ml-md">FEEL EVERY</div>
-              <div class="text-h2 text-bold q-mb-md q-ml-md">MOMENT</div>
-              <div class="text-subtitle1 q-mb-lg">WITH OUR DIAMOND WEDDING RINGS</div>
-              <q-btn color="black" style="border: 1px solid white;" text-color="white" label="SHOP WEDDING RINGS"
-                icon-right="favorite_border" />
-            </div>
-          </q-img>
-        </div>
+        <div class="row no-wrap">
+  <q-img src="src/assets/Untitled-2.png">
+    <div class="text-white q-pa-md q-pa-lg-md q-pa-xl-lg">
+      <div class="text-h6 text-h5-sm text-h4-md text-h3-lg q-ml-sm q-ml-md-lg">FEEL EVERY</div>
+      <div class="text-h4 text-h3-sm text-h2-md text-h1-lg text-bold q-mb-sm q-ml-sm q-ml-md-lg">MOMENT</div>
+      <div class="text-subtitle2 text-subtitle1-md q-mb-md">WITH OUR DIAMOND WEDDING RINGS</div>
+      <q-btn
+        color="black"
+        style="border: 1px solid white;"
+        text-color="white"
+        label="SHOP WEDDING RINGS"
+        icon-right="favorite_border"
+        class="q-mt-md"
+      />
+    </div>
+  </q-img>
+</div>
+
         <div class="text-center q-pa-xl">
           <div class="text-h5 q-mb-sm">NEW ARRIVALS</div>
           <div class="text-body2 q-mb-xl">
@@ -206,9 +236,9 @@
             <q-btn outline color="black" label="Show more" icon-right="keyboard_arrow_down" />
           </div>
         </div>
-        <div>
+        <div class="row no-wrap">
           <q-img src="src\assets\low-angle-happy-couple-nature.png"
-            style="height: 400px; border-radius: 8px; overflow: hidden;">
+            >
 
             <div style="height: 400px" class="row items-center ">
               <div class="col-12 col-md-6 q-pa-xl">
@@ -232,8 +262,10 @@
           <div class="row items-center justify-around">
             <div class="col-12 col-md-4">
               <div class="row items-center q-mb-md">
-                <q-icon name="mdi-instagram" size="32px" color="pink" />
-                <span class="text-h6 q-ml-sm">Instagram</span>
+                <q-avatar size="50px">
+                <img src="src\assets\insta.jpg" />
+              </q-avatar>
+                <span class="text-h6 q-ml-sm" color="pink">Instagram</span>
               </div>
               <div class="text-body2 q-mb-md">
                 #diamonds<br />
@@ -396,4 +428,5 @@
 .bg-gold {
   background: linear-gradient(90deg, #d4af37, #f8e1a1);
 }
+
 </style>
